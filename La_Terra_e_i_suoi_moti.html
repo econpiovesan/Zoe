@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08182d">
+  <meta name="description" content="Esplora giorno e notte, stagioni e fasi della Luna con simulazioni interattive per la scuola media.">
+  <title>I moti della Terra · Esplora lo spazio</title>
+  <style>
+    :root{color-scheme:dark;--bg:#07182c;--panel:#102943;--panel2:#0c2139;--line:#31516b;--muted:#afc3d6;--text:#f5f8ff;--cyan:#81e9e8;--gold:#ffce75;--pink:#ffa8a2;--green:#9ce0bd;--shadow:0 25px 75px #00101f64}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 18% 3%,#123f63 0%,transparent 30%),radial-gradient(circle at 88% 57%,#123450 0%,transparent 31%),var(--bg);font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text)}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:3px}button:disabled{cursor:default}a{color:var(--cyan)}.shell{width:min(1240px,calc(100% - 44px));margin:auto}.topbar{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #41627c65}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.01em}.brand-icon{width:39px;height:39px;border:1px solid #81e9e888;border-radius:12px;display:grid;place-items:center;background:#81e9e817;font-size:21px}.top-tag{border:1px solid #6685a052;border-radius:99px;padding:7px 15px;color:#cce0ed;font-size:.82rem}.hero{padding:52px 0 28px;display:flex;justify-content:space-between;align-items:end;gap:25px}.eyebrow{color:var(--cyan);font-size:.77rem;letter-spacing:.18em;font-weight:800;text-transform:uppercase}.hero h1{font-size:clamp(2.45rem,5.5vw,5rem);line-height:1.06;letter-spacing:-.055em;margin:12px 0 15px;max-width:800px}.hero h1 em{font-style:normal;color:var(--cyan)}.hero p{margin:0;color:var(--muted);max-width:590px;font-size:1.09rem}.hero-side{border:1px solid #6685a050;border-radius:18px;padding:12px 17px;display:flex;gap:11px;align-items:center;background:#0f2b42;white-space:nowrap;color:#d9e9f6;font-size:.89rem}.hero-side span:first-child{color:var(--gold);font-size:1.3rem}.tabs{display:flex;gap:8px;padding:6px;background:#0b2138;border:1px solid var(--line);border-radius:17px;width:max-content;max-width:100%;margin:14px 0 20px}.tab{border:0;border-radius:12px;background:transparent;color:#c2d4e4;padding:12px 21px;font-weight:750;transition:background .2s,color .2s}.tab[aria-selected=true]{background:#207b89;color:white;box-shadow:0 5px 22px #45c8d02b}.tab:hover:not([aria-selected=true]){background:#ffffff13}.tab-number{opacity:.7;margin-right:9px;font-size:.8rem}.layout{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(310px,.9fr);gap:18px}.card{border:1px solid #45627b88;border-radius:22px;background:linear-gradient(145deg,#102d49,#0b2139);box-shadow:var(--shadow)}.stage{overflow:hidden;min-width:0}.stage-head{padding:24px 28px 0;display:flex;align-items:start;justify-content:space-between;gap:15px}.stage-head h2{font-size:1.42rem;margin:3px 0 1px;letter-spacing:-.025em}.stage-head p{margin:0;color:var(--muted);font-size:.9rem}.live{display:flex;align-items:center;gap:7px;border:1px solid #6283a05e;border-radius:99px;padding:7px 11px;font-size:.75rem;color:#d6e7f2;white-space:nowrap}.live:before{content:"";width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 11px var(--green)}.stage-art{height:420px;position:relative;overflow:hidden}.stage-art svg{width:100%;height:100%;display:block}.scene{opacity:0;visibility:hidden;transition:opacity .3s}.scene.active{opacity:1;visibility:visible}.stage-art svg text{font-family:system-ui,-apple-system,sans-serif;user-select:none}.stage-footer{border-top:1px solid #40607a69;padding:12px 23px 17px;display:flex;justify-content:center;color:#aac5d6;font-size:.76rem;text-align:center}.sidebar{display:flex;flex-direction:column;gap:18px}.control-card,.fact-card{padding:23px}.mini-label{font-size:.72rem;color:var(--cyan);letter-spacing:.12em;text-transform:uppercase;font-weight:800}.control-card h2{margin:5px 0 13px;font-size:1.45rem;letter-spacing:-.035em}.readout{display:flex;align-items:baseline;gap:9px;padding-bottom:4px}.readout strong{font-size:clamp(2.1rem,3vw,3.4rem);line-height:1.1;letter-spacing:-.05em}.readout span{color:var(--muted);font-size:.88rem}.control-description{color:#d5e3ef;min-height:53px;margin:10px 0 18px;font-size:.94rem}.range-wrap{margin:12px 0 16px}.range-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:.72rem;margin-top:3px}.range{width:100%;accent-color:var(--cyan);cursor:pointer}.actions{display:flex;align-items:center;justify-content:space-between;gap:12px}.play{border:0;border-radius:11px;padding:10px 16px;color:#082532;background:var(--cyan);font-weight:800;min-width:121px}.play:hover{filter:brightness(1.1)}.speed-group{display:flex;gap:5px;align-items:center;color:var(--muted);font-size:.78rem}.speed{color:#bfd3e2;background:#163752;border:1px solid #52748b;border-radius:8px;padding:6px 9px}.speed[aria-pressed=true]{border-color:var(--cyan);color:var(--cyan);background:#80dada1e}.season-picks{display:none;grid-template-columns:repeat(4,1fr);gap:5px;margin:8px 0 18px}.season-picks.show{display:grid}.season-picks button{padding:8px 2px;border-radius:8px;border:1px solid #52748b;background:#14334f;color:#dbe9f3;font-size:.76rem}.season-picks button[aria-pressed=true]{background:#237b83;border-color:#84e8e4;color:white}.fact-card{flex:1;background:linear-gradient(145deg,#123b52,#123048)}.fact-card .fact-symbol{width:42px;height:42px;border-radius:13px;background:#ffd78322;display:grid;place-items:center;color:var(--gold);font-size:1.45rem;margin-bottom:13px}.fact-card h3{margin:0 0 8px;font-size:1.1rem}.fact-card p{margin:0;color:#d0e0ec;font-size:.94rem}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0 36px}.stat{padding:20px 23px}.stat .number{font-size:1.5rem;font-weight:850;letter-spacing:-.04em;color:var(--gold)}.stat .title{font-size:.88rem;font-weight:750;margin-top:4px}.stat p{font-size:.78rem;color:var(--muted);margin:3px 0 0}.lower{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:50px}.explain,.quiz{padding:25px 28px}.explain h2,.quiz h2{margin:6px 0 17px;font-size:1.25rem;letter-spacing:-.025em}.steps{display:grid;gap:15px}.step{display:flex;gap:13px;align-items:start}.step b{flex:0 0 29px;height:29px;border-radius:9px;background:#76dbdd25;color:var(--cyan);display:grid;place-items:center;font-size:.8rem}.step p{margin:1px 0 0;font-size:.9rem;color:#d3e2ee}.step strong{color:white}.quiz-question{font-size:1rem;font-weight:750;min-height:48px;margin:0 0 13px}.choices{display:grid;gap:7px}.choice{text-align:left;background:#133651;border:1px solid #52748b;border-radius:11px;padding:10px 13px;color:#e6f1f9;font-size:.89rem}.choice:hover:not(:disabled){background:#1e536b}.choice.correct{border-color:#8fe6b8;background:#2f8c6855}.choice.wrong{border-color:#f5a1a0;background:#ad566055}.quiz-feedback{min-height:39px;color:#bde9d1;font-size:.85rem;margin:11px 0 0}.next{border:0;border-radius:9px;background:var(--gold);color:#2b281d;padding:8px 13px;font-weight:750;font-size:.82rem;display:none}.next.show{display:inline-block}.foot{border-top:1px solid #41627c65;color:#a8bfd0;font-size:.78rem;padding:19px 0 30px;display:flex;justify-content:space-between;gap:15px}.hidden{display:none!important}
+    @media(max-width:920px){.layout{grid-template-columns:1fr}.sidebar{display:grid;grid-template-columns:1.2fr 1fr}.stage-art{height:390px}.hero-side{display:none}}@media(max-width:650px){.shell{width:min(100% - 26px,1240px)}.topbar{height:67px}.top-tag{display:none}.hero{padding:36px 0 22px}.hero h1{font-size:2.75rem}.hero p{font-size:1rem}.tabs{width:100%}.tab{flex:1;padding:12px 7px;font-size:.86rem}.stage-head{padding:19px 18px 0}.stage-head h2{font-size:1.17rem}.stage-head p{font-size:.77rem}.live{font-size:.66rem;padding:6px 7px}.stage-art{height:290px}.stage-footer{font-size:.68rem;padding:11px 16px 14px}.sidebar,.lower{grid-template-columns:1fr}.control-card,.fact-card,.explain,.quiz{padding:21px}.stats{gap:8px}.stat{padding:13px 11px}.stat .number{font-size:1.18rem}.stat .title{font-size:.74rem}.stat p{font-size:.68rem}.lower{margin-bottom:29px}.foot{display:block}}
+    .period-picks{display:none;grid-template-columns:repeat(5,1fr);gap:5px;margin:8px 0 18px}.period-picks.show{display:grid}.period-picks button{padding:8px 2px;border-radius:8px;border:1px solid #52748b;background:#14334f;color:#dbe9f3;font-size:.69rem}.period-picks button[aria-pressed=true]{background:#237b83;border-color:#84e8e4;color:white}.date-box{display:none;border:1px solid #52748b;border-radius:13px;background:#0b263e;padding:13px;margin:6px 0 16px}.date-box.show{display:block}.date-grid{display:grid;grid-template-columns:75px minmax(0,1fr) 86px;gap:7px;margin-top:9px}.date-grid label{display:block;font-size:.72rem;color:#c8dbe8}.date-grid select,.date-grid input{width:100%;height:39px;margin-top:4px;border:1px solid #60819a;border-radius:8px;background:#123650;color:white;padding:6px 7px}.date-hint{font-size:.76rem;color:#b9d5e3;margin:9px 0 0}.insight{border-top:1px solid #40607a69;padding:13px 24px;background:#123b526b;color:#e4f3f6;font-size:.88rem;display:flex;gap:11px;align-items:center}.insight-icon{width:28px;height:28px;border-radius:9px;background:#80dada20;color:var(--cyan);display:grid;place-items:center;flex:0 0 28px}.insight strong{color:var(--gold)}.reference{margin-top:10px;color:#adcad8;font-size:.78rem}.reference a{color:#b5e6e5}
+    .deep-dive{padding:27px 31px;margin:-17px 0 18px}.deep-dive h2{margin:7px 0 8px;font-size:1.48rem;letter-spacing:-.03em}.deep-dive .lead{color:#e4f0f8;margin:0 0 20px;max-width:870px}.detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px 25px}.detail-point{border-left:2px solid #81e9e883;padding:2px 0 2px 14px}.detail-point h3{margin:0 0 4px;color:var(--cyan);font-size:.95rem}.detail-point p{margin:0;color:#cedfea;font-size:.88rem;line-height:1.55}.quiz-topics{display:flex;gap:5px;flex-wrap:wrap;margin:0 0 13px}.quiz-topic{background:#153953;border:1px solid #52748b;border-radius:8px;color:#dcebf4;font-size:.76rem;padding:6px 10px}.quiz-topic[aria-pressed=true]{background:#247b86;border-color:var(--cyan);color:white}.quiz-status{display:flex;justify-content:space-between;gap:10px;color:#b8ccda;font-size:.76rem;margin-bottom:11px}
+    @media(max-width:650px){.date-grid{grid-template-columns:70px minmax(0,1fr) 79px}.period-picks button{font-size:.62rem;padding:8px 0}.insight{padding:12px 17px;font-size:.79rem}.stage-head{align-items:center}}
+    @media(max-width:650px){.deep-dive{padding:21px;margin-top:-17px}.detail-grid{grid-template-columns:1fr}.quiz-topic{padding:6px 8px;font-size:.7rem}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar"><div class="brand"><span class="brand-icon" aria-hidden="true">✦</span><span>Esplora lo spazio</span></div><span class="top-tag">Scienze · Scuola secondaria di I grado</span></header>
+    <main>
+      <section class="hero" aria-labelledby="page-title"><div><div class="eyebrow">Un viaggio tra Terra, Sole e Luna</div><h1 id="page-title">I moti della <em>Terra</em></h1><p>Esplora il giorno, le stagioni e le fasi lunari. Scegli anche una data speciale, come il tuo compleanno.</p></div><div class="hero-side"><span aria-hidden="true">✦</span><span>Esplora al tuo ritmo</span></div></section>
+      <div class="tabs" role="tablist" aria-label="Scegli il fenomeno da esplorare"><button class="tab" id="tab-rotation" role="tab" aria-selected="true" aria-controls="rotation-scene" type="button"><span class="tab-number">01</span>Giorno</button><button class="tab" id="tab-orbit" role="tab" aria-selected="false" aria-controls="orbit-scene" type="button"><span class="tab-number">02</span>Stagioni</button><button class="tab" id="tab-moon" role="tab" aria-selected="false" aria-controls="moon-scene" type="button"><span class="tab-number">03</span>Luna</button></div>
+      <div class="layout">
+        <section class="card stage" aria-label="Simulazione dei moti della Terra"><div class="stage-head"><div><div class="mini-label">Simulazione interattiva</div><h2 id="stage-title">La Terra gira su se stessa</h2><p id="stage-subtitle">Osserva la superficie muoversi da ovest verso est e il punto rosa passare dal giorno alla notte.</p></div><div class="live">Modello animato</div></div>
+          <div class="stage-art">
+            <svg viewBox="0 0 900 440" role="img" aria-labelledby="diagram-title diagram-description" preserveAspectRatio="xMidYMid meet"><title id="diagram-title">Rotazione della Terra</title><desc id="diagram-description">Il Sole illumina una metà della Terra. Un punto segnala l'ora nella simulazione.</desc>
+              <defs>
+                <radialGradient id="sunGlow"><stop offset="0" stop-color="#ffda83" stop-opacity=".55"/><stop offset=".3" stop-color="#ffb455" stop-opacity=".17"/><stop offset="1" stop-color="#ffb455" stop-opacity="0"/></radialGradient>
+                <radialGradient id="earthLit" cx="18%" cy="37%" r="83%"><stop offset="0" stop-color="#69d9e6"/><stop offset=".43" stop-color="#2479b6"/><stop offset=".73" stop-color="#123f79"/><stop offset="1" stop-color="#091831"/></radialGradient>
+                <linearGradient id="terminator"><stop offset="0" stop-color="#082141" stop-opacity="0"/><stop offset=".47" stop-color="#082141" stop-opacity=".08"/><stop offset=".75" stop-color="#061326" stop-opacity=".65"/><stop offset="1" stop-color="#051022" stop-opacity=".88"/></linearGradient>
+                <radialGradient id="orbitLight" cx="20%" cy="45%" r="92%"><stop offset="0" stop-color="#6ce6e5"/><stop offset=".4" stop-color="#287dc0"/><stop offset=".82" stop-color="#14406c"/><stop offset="1" stop-color="#071527"/></radialGradient>
+                <clipPath id="bigGlobe"><circle cx="575" cy="220" r="109"/></clipPath><clipPath id="smallGlobe"><circle cx="0" cy="0" r="39"/></clipPath><clipPath id="moonEarthGlobe"><circle cx="452" cy="220" r="66"/></clipPath>
+              </defs>
+              <g fill="#d2e8fb"><circle cx="81" cy="80" r="1" opacity=".7"/><circle cx="279" cy="54" r="1.4" opacity=".7"/><circle cx="374" cy="143" r="1" opacity=".65"/><circle cx="775" cy="92" r="1.2" opacity=".7"/><circle cx="819" cy="306" r="1" opacity=".6"/><circle cx="124" cy="329" r="1.1" opacity=".7"/><circle cx="342" cy="378" r="1.1" opacity=".65"/><circle cx="700" cy="379" r="1" opacity=".75"/><circle cx="830" cy="51" r="1" opacity=".7"/><circle cx="437" cy="40" r="1" opacity=".45"/></g>
+              <g id="rotation-scene" class="scene active">
+                <ellipse cx="224" cy="221" rx="164" ry="148" fill="url(#sunGlow)"/><circle cx="210" cy="220" r="55" fill="#ffcf77"/><circle cx="210" cy="220" r="45" fill="#ffe3a5" opacity=".4"/>
+                <circle cx="575" cy="220" r="109" fill="url(#earthLit)" stroke="#a6eced" stroke-opacity=".52" stroke-width="2"/>
+                <g clip-path="url(#bigGlobe)"><g id="rotation-lands" fill="#6dba9a" opacity=".8"><path d="M470 151q22-20 39-12l12 15 23 1 8 15-15 15-8 24-20 4-10 19-18-2-12-22-16-11z M517 254l24-5 21 16 1 19-12 10-10 31-15 1-13-28-12-9z M577 147l32-18 26 8 20-3 18 13-4 19-24 6-9 18-17-1-12 18-19-11-10-20z M600 231l28-7 21 11-5 30-17 8-9 32-24-7-3-24z"/><path transform="translate(-218 0)" d="M470 151q22-20 39-12l12 15 23 1 8 15-15 15-8 24-20 4-10 19-18-2-12-22-16-11z M517 254l24-5 21 16 1 19-12 10-10 31-15 1-13-28-12-9z M577 147l32-18 26 8 20-3 18 13-4 19-24 6-9 18-17-1-12 18-19-11-10-20z M600 231l28-7 21 11-5 30-17 8-9 32-24-7-3-24z"/><path transform="translate(218 0)" d="M470 151q22-20 39-12l12 15 23 1 8 15-15 15-8 24-20 4-10 19-18-2-12-22-16-11z M517 254l24-5 21 16 1 19-12 10-10 31-15 1-13-28-12-9z M577 147l32-18 26 8 20-3 18 13-4 19-24 6-9 18-17-1-12 18-19-11-10-20z M600 231l28-7 21 11-5 30-17 8-9 32-24-7-3-24z"/></g><ellipse cx="575" cy="220" rx="109" ry="109" fill="url(#terminator)"/></g>
+                <text x="574" y="77" text-anchor="middle" fill="#b8e7e7" font-size="13">rotazione: ovest → est</text>
+                <g id="rotation-marker"><circle r="13" fill="#ffa8a2" opacity=".18"/><circle r="6" fill="#ffa8a2" stroke="white" stroke-width="2"/></g>
+                <text x="210" y="322" text-anchor="middle" fill="#ffdd9b" font-size="18" font-weight="700">SOLE</text><text x="575" y="374" text-anchor="middle" fill="#bdebf0" font-size="18" font-weight="700">TERRA</text><text x="420" y="108" text-anchor="middle" fill="#f8d99c" font-size="14">lato illuminato</text><text x="756" y="108" fill="#aebfd6" font-size="14">lato in ombra</text>
+              </g>
+              <g id="orbit-scene" class="scene">
+                <path id="orbit-path" fill="none" stroke="#7195b0" stroke-width="1.5" opacity=".48"/><ellipse cx="450" cy="225" rx="95" ry="95" fill="url(#sunGlow)"/><circle cx="450" cy="225" r="39" fill="#ffd17d"/><circle cx="450" cy="225" r="29" fill="#ffe3a7" opacity=".46"/><text x="450" y="293" text-anchor="middle" fill="#ffdc9b" font-size="16" font-weight="750">SOLE</text>
+                <g fill="#c9dfef" font-size="13" font-weight="700"><text x="450" y="60" text-anchor="middle">MARZO</text><text x="93" y="143" text-anchor="middle">GIUGNO</text><text x="450" y="401" text-anchor="middle">SETTEMBRE</text><text x="799" y="228" text-anchor="middle">DICEMBRE</text></g>
+                <g id="orbit-earth-position"><path d="M-20 46 L20 -46" stroke="#e6f4f5" stroke-width="1.7" opacity=".62"/><circle r="39" fill="url(#orbitLight)" stroke="#a7e8ee" stroke-width="1.5"/><g clip-path="url(#smallGlobe)" fill="#74bc9a" opacity=".8"><g id="orbit-earth-lands"><path d="M-34-12q12-12 22-8l7 8 13-1 7 11-10 9-3 12-11 3-5 13-15-6-3-15-11-5z M14-24q11-8 20-5l9 11-7 10-8 3 6 14-12 15-11-5 2-18-8-10z"/><path transform="translate(-78 0)" d="M-34-12q12-12 22-8l7 8 13-1 7 11-10 9-3 12-11 3-5 13-15-6-3-15-11-5z M14-24q11-8 20-5l9 11-7 10-8 3 6 14-12 15-11-5 2-18-8-10z"/><path transform="translate(78 0)" d="M-34-12q12-12 22-8l7 8 13-1 7 11-10 9-3 12-11 3-5 13-15-6-3-15-11-5z M14-24q11-8 20-5l9 11-7 10-8 3 6 14-12 15-11-5 2-18-8-10z"/></g></g><circle r="5" cy="-36" cx="15" fill="#ffa8a2" stroke="white" stroke-width="1.5"/><text x="33" y="-43" text-anchor="middle" fill="#ffb4a7" font-size="13" font-weight="800">N</text><text x="-30" y="45" text-anchor="middle" fill="#ffb4a7" font-size="13" font-weight="800">S</text><text x="0" y="69" text-anchor="middle" fill="#c8eff2" font-size="16" font-weight="750">TERRA</text></g>
+                <text x="650" y="98" fill="#b8e7e7" font-size="13">orbita terrestre</text>
+              </g>
+              <g id="moon-scene" class="scene">
+                <ellipse cx="105" cy="221" rx="175" ry="158" fill="url(#sunGlow)"/><circle cx="112" cy="220" r="46" fill="#ffda8a"/><circle cx="112" cy="220" r="36" fill="#ffe4ad" opacity=".42"/><text x="112" y="293" text-anchor="middle" fill="#ffdc9b" font-size="16" font-weight="750">SOLE</text>
+                <text x="452" y="57" text-anchor="middle" fill="#a9c8d8" font-size="12">vista schematica dal Polo Nord</text><path id="moon-orbit-path" fill="none" stroke="#91aabb" stroke-width="1.5" opacity=".5"/><text x="452" y="395" text-anchor="middle" fill="#b8e7e7" font-size="12">orbita lunare: antioraria</text><circle cx="452" cy="220" r="66" fill="url(#earthLit)" stroke="#8bdbe8" stroke-width="1.5"/><g clip-path="url(#moonEarthGlobe)" fill="#67ba9c" opacity=".68"><g id="moon-earth-lands"><path d="M416 220q14-37 38-35l11 19-15 14 13 23-26 35-28-19z M470 181q22-8 36 10l-4 18-17 7 8 20-13 28-20-5 2-25-9-12z"/><path transform="translate(-132 0)" d="M416 220q14-37 38-35l11 19-15 14 13 23-26 35-28-19z M470 181q22-8 36 10l-4 18-17 7 8 20-13 28-20-5 2-25-9-12z"/><path transform="translate(132 0)" d="M416 220q14-37 38-35l11 19-15 14 13 23-26 35-28-19z M470 181q22-8 36 10l-4 18-17 7 8 20-13 28-20-5 2-25-9-12z"/></g></g><text x="452" y="319" text-anchor="middle" fill="#bdebf0" font-size="16" font-weight="750">TERRA</text>
+                <g id="moon-position"><circle r="22" fill="#adb4c0" stroke="#d7e6eb" stroke-width="1.5"/><path id="moon-orbit-lit" fill="#fff0c6"/><text x="0" y="39" text-anchor="middle" fill="#e7e8ee" font-size="14" font-weight="750">LUNA</text></g>
+                <text x="764" y="120" text-anchor="middle" fill="#d4eced" font-size="13">Vista dalla Terra</text><circle cx="761" cy="234" r="66" fill="#858d9a" stroke="#e6e9ef" stroke-width="2"/><path id="moon-phase-lit" fill="#ffebbd"/><g fill="#cdd2da" opacity=".15"><circle cx="740" cy="215" r="7"/><circle cx="780" cy="249" r="11"/><circle cx="752" cy="269" r="5"/></g><text id="moon-phase-label" x="761" y="332" text-anchor="middle" fill="#ffe5b0" font-size="15" font-weight="750">Fase lunare</text>
+              </g>
+            </svg>
+          </div><div class="insight"><span class="insight-icon" aria-hidden="true">✧</span><span id="insight-text">Il Sole illumina sempre metà della Terra: la rotazione cambia quale metà vediamo.</span></div><div class="stage-footer">Disegno didattico: dimensioni, distanze, orbite e velocità non sono in scala. La rotazione è rallentata nelle viste Stagioni e Luna; i risultati associati alle date sono stime.</div>
+        </section>
+        <aside class="sidebar">
+          <section class="card control-card" aria-label="Controlli della simulazione"><div class="mini-label" id="control-kicker">Un giorno sulla Terra</div><h2 id="control-title">Che ora è?</h2><div class="readout"><strong id="readout">12:00</strong><span id="readout-unit">ora locale indicativa</span></div><p class="control-description" id="control-description" aria-live="polite">Il punto rosa è sul lato illuminato: è mezzogiorno.</p><div class="range-wrap"><label class="mini-label" id="range-title" for="timeline">Sposta il tempo</label><input id="timeline" class="range" type="range" min="0" max="1440" value="720" step="10" aria-label="Ora nella simulazione"><div class="range-labels"><span id="range-first">00:00</span><span id="range-middle">12:00</span><span id="range-last">24:00</span></div></div><div id="period-picks" class="period-picks" aria-label="Vai a un momento del giorno"><button type="button" data-minute="480">Mattina</button><button type="button" data-minute="720">Mezzogiorno</button><button type="button" data-minute="960">Pomeriggio</button><button type="button" data-minute="1140">Sera</button><button type="button" data-minute="1380">Notte</button></div><div id="season-picks" class="season-picks" aria-label="Vai a una stagione"><button type="button" data-month="2" data-date-day="20">Marzo</button><button type="button" data-month="5" data-date-day="21">Giugno</button><button type="button" data-month="8" data-date-day="22">Settembre</button><button type="button" data-month="11" data-date-day="21">Dicembre</button></div><div id="date-box" class="date-box"><div class="mini-label">La tua data speciale</div><div class="date-grid"><label for="date-day">Giorno<select id="date-day"></select></label><label for="date-month">Mese<select id="date-month"></select></label><label for="date-year">Anno<input id="date-year" type="number" min="1900" max="2100" step="1" inputmode="numeric" value="2026"></label></div><p class="date-hint" id="date-hint">Scegli una data dal 1900 al 2100, anche il tuo compleanno.</p></div><div class="actions"><button class="play" id="play" type="button" aria-label="Avvia la simulazione">▶ Avvia</button><div class="speed-group"><span>Velocità</span><button type="button" class="speed" data-speed="1" aria-pressed="true">1×</button><button type="button" class="speed" data-speed="2" aria-pressed="false">2×</button><button type="button" class="speed" data-speed="3" aria-pressed="false">3×</button></div></div></section>
+          <section class="card fact-card" aria-live="polite"><div class="fact-symbol" aria-hidden="true" id="fact-symbol">☀</div><div class="mini-label">Da ricordare</div><h3 id="fact-title">Giorno e notte</h3><p id="fact-text">La Terra ruota da ovest verso est attorno al proprio asse. Per questo il Sole ci appare sorgere a est e tramontare a ovest.</p></section>
+        </aside>
+      </div>
+      <div class="stats" aria-label="Numeri da ricordare"><div class="card stat"><div class="number" id="stat1-number">24 ore</div><div class="title" id="stat1-title">Giorno solare</div><p id="stat1-desc">Il tempo medio tra due mezzogiorni.</p></div><div class="card stat"><div class="number" id="stat2-number">23 h 56 min</div><div class="title" id="stat2-title">Rotazione siderale</div><p id="stat2-desc">Un giro rispetto alle stelle lontane, circa.</p></div><div class="card stat"><div class="number" id="stat3-number">Ovest → est</div><div class="title" id="stat3-title">Direzione</div><p id="stat3-desc">Vista dal Polo Nord, la rotazione è antioraria.</p></div></div>
+      <section class="card deep-dive" aria-labelledby="detail-title"><div class="mini-label">Per capire meglio</div><h2 id="detail-title"></h2><p class="lead" id="detail-lead"></p><div class="detail-grid" id="detail-grid"></div></section>
+      <div class="lower"><section class="card explain"><div class="mini-label">Capire in tre passi</div><h2 id="steps-title">Come nasce il giorno?</h2><div class="steps" id="steps"></div></section><section class="card quiz"><div class="mini-label">Mettiti alla prova</div><h2>Quiz: scegli un argomento</h2><div class="quiz-topics" aria-label="Argomento del quiz"><button type="button" class="quiz-topic" data-topic="all" aria-pressed="true">Tutte</button><button type="button" class="quiz-topic" data-topic="rotation" aria-pressed="false">Giorno</button><button type="button" class="quiz-topic" data-topic="orbit" aria-pressed="false">Stagioni</button><button type="button" class="quiz-topic" data-topic="moon" aria-pressed="false">Luna</button></div><div class="quiz-status"><span id="quiz-progress">Domanda 1</span><span id="quiz-score">0 corrette</span></div><p class="quiz-question" id="quiz-question"></p><div class="choices" id="choices"></div><p class="quiz-feedback" id="quiz-feedback" aria-live="polite"></p><button class="next" id="next-question" type="button">Altra domanda →</button></section></div>
+    </main><footer class="foot"><span>Esplora lo spazio · I moti della Terra</span><span>Modello didattico offline · <a href="https://science.nasa.gov/earth/facts/" target="_blank" rel="noopener noreferrer">Terra: NASA</a> · <a href="https://science.nasa.gov/moon/moon-phases/" target="_blank" rel="noopener noreferrer">Luna: NASA</a> · <a href="https://aa.usno.navy.mil/data/Earth_Seasons" target="_blank" rel="noopener noreferrer">Stagioni: USNO</a></span></footer>
+  </div>
+  <script>
+    (()=>{
+      'use strict';
+      const $=id=>document.getElementById(id);
+      const modes=['rotation','orbit','moon'];
+      const monthNames=['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
+      const phaseNames=['Luna nuova','Luna crescente','Primo quarto','Gibbosa crescente','Luna piena','Gibbosa calante','Ultimo quarto','Luna calante'];
+      const epoch=Date.UTC(2026,10,9,7,2); // Luna nuova UTC: U.S. Naval Observatory, 9 novembre 2026.
+      const synodicDays=29.530588853, dayMs=86400000;
+      const content={
+        rotation:{stage:'La Terra gira su se stessa',subtitle:'Osserva la superficie muoversi da ovest verso est e il punto rosa passare dal giorno alla notte.',kicker:'Un giorno sulla Terra',control:'Che ora è?',range:'Sposta il tempo',labels:['00:00','12:00','24:00'],symbol:'☀',fact:'Giorno e notte',description:'La Terra ruota da ovest verso est attorno al proprio asse. Per questo il Sole ci appare sorgere a est e tramontare a ovest.',stats:[['24 ore','Giorno solare','Il tempo medio tra due mezzogiorni.'],['23 h 56 min','Rotazione siderale','Un giro rispetto alle stelle lontane, circa.'],['Ovest → est','Direzione','Vista dal Polo Nord, la rotazione è antioraria.']],stepsTitle:'Come nasce il giorno?',steps:[['La Terra ruota','Gira da ovest verso est attorno a un asse immaginario che passa per i poli.'],['La luce cambia','Mentre la superficie ruota, ogni luogo entra nella luce e poi nell’ombra.'],['Il ciclo ricomincia','Il giorno solare medio dura 24 ore.']]},
+        orbit:{stage:'La Terra ruota mentre viaggia intorno al Sole',subtitle:'Scegli una data: la superficie gira, mentre l’asse mantiene quasi la stessa direzione.',kicker:'Un anno sulla Terra',control:'In quale stagione?',range:'Sposta i giorni dell’anno',labels:['Gennaio','Luglio','Dicembre'],symbol:'↗',fact:'L’asse è inclinato',description:'L’asse terrestre è inclinato di circa 23,4° rispetto alla perpendicolare al piano orbitale e rimane orientato quasi nella stessa direzione durante l’anno.',stats:[['365,24 giorni','Anno tropicale','Il ciclo medio delle stagioni.'],['23,4°','Asse inclinato','Rispetto alla perpendicolare al piano dell’orbita.'],['2 emisferi','Stagioni opposte','Se è estate al nord, è inverno al sud.']],stepsTitle:'Perché cambiano le stagioni?',steps:[['L’asse è inclinato','La Terra orbita mantenendo quasi la stessa direzione del proprio asse.'],['Cambia la luce','In un emisfero il Sole è più alto e il giorno dura di più.'],['Le stagioni si alternano','Il ciclo si inverte dopo circa sei mesi. La distanza dal Sole non causa le stagioni.']]},
+        moon:{stage:'La Luna si muove intorno alla Terra',subtitle:'Scegli una data e confronta la sua posizione con la fase vista da noi.',kicker:'Un mese lunare',control:'Com’è la Luna?',range:'Sposta i giorni dell’anno',labels:['Gennaio','Luglio','Dicembre'],symbol:'☾',fact:'La Luna non cambia forma',description:'Fuori dalle eclissi, il Sole illumina metà della Luna. Dalla Terra vediamo porzioni diverse di quella metà illuminata.',stats:[['27,3 giorni','Un’orbita','Rispetto alle stelle lontane.'],['29,5 giorni','Ciclo delle fasi','Da una Luna nuova alla successiva, circa.'],['Rotazione sincrona','Quasi la stessa faccia','La librazione ci permette di vedere, nel tempo, un po’ più della metà.']],stepsTitle:'Come nascono le fasi?',steps:[['Il Sole illumina la Luna','Fuori dalle eclissi, metà della sua superficie è illuminata.'],['La Luna cambia posizione','Si sposta intorno alla Terra rispetto alla direzione del Sole.'],['Noi vediamo la luce','La porzione illuminata che vediamo cambia; l’ombra della Terra interviene solo durante un’eclissi lunare.']]}
+      };
+      const lessons={
+        rotation:{title:'La rotazione: dalla luce all’ombra',lead:'La Terra gira continuamente intorno al proprio asse, la linea immaginaria che unisce il Polo Nord al Polo Sud. Una persona sulla superficie si muove con il pianeta, anche se non avverte questo movimento.',points:[
+          ['In quale direzione gira?','Da ovest verso est. Guardando la Terra da sopra il Polo Nord, la rotazione appare antioraria. Per questo il Sole sembra attraversare il cielo nella direzione opposta, da est verso ovest.'],
+          ['Come nascono giorno e notte?','Il Sole illumina la metà della Terra rivolta verso di lui. Mentre un luogo ruota verso la luce, arriva il giorno; quando ruota verso il lato in ombra, arriva la notte. Il punto rosa segue un luogo ideale: le sue ore sono indicative.'],
+          ['Perché 24 ore e 23 ore 56 minuti?','Tra due mezzogiorni solari medi trascorrono 24 ore. Un giro rispetto alle stelle lontane richiede circa 23 ore e 56 minuti. La differenza nasce perché, nel frattempo, la Terra avanza anche lungo la propria orbita.'],
+          ['L’alba è sempre alle sei?','No. L’ora e la durata della luce dipendono dalla stagione e dal luogo. In estate, alle nostre latitudini, il Sole sorge prima e tramonta più tardi che in inverno. La simulazione mostra un ciclo giornaliero semplificato.']
+        ]},
+        orbit:{title:'La rivoluzione: un anno intorno al Sole',lead:'Oltre a ruotare su se stessa, la Terra percorre un’orbita intorno al Sole. Il ciclo delle stagioni dura circa 365,24 giorni; il calendario aggiunge talvolta il 29 febbraio per restare allineato con l’anno astronomico.',points:[
+          ['Perché l’asse conta?','L’asse di rotazione è inclinato di circa 23,4° rispetto alla perpendicolare al piano orbitale. Durante il viaggio punta quasi sempre nella stessa direzione. La superficie continua a ruotare anche mentre la Terra si sposta nell’orbita.'],
+          ['Da dove vengono le stagioni?','Quando l’emisfero nord è inclinato verso il Sole, riceve luce più diretta e ha giornate più lunghe: lì è estate. Nello stesso periodo al sud è inverno. Sei mesi dopo la situazione si inverte. La diversa distanza dal Sole non è la causa delle stagioni.'],
+          ['Che cosa sono equinozi e solstizi?','Vicino agli equinozi di marzo e settembre il giorno e la notte hanno durate simili. Ai solstizi di giugno e dicembre un emisfero raggiunge rispettivamente il giorno più lungo o più corto dell’anno. Le date e le ore precise cambiano leggermente di anno in anno.'],
+          ['Come leggere la figura?','Il cursore o la data di nascita mostrano una posizione approssimata della Terra e la stagione nell’emisfero nord. L’ellisse è un modo di rappresentare l’orbita in prospettiva: non indica che la distanza dal Sole cambi tanto quanto appare nel disegno.']
+        ]},
+        moon:{title:'La Luna: orbita e fasi',lead:'La Luna gira intorno alla Terra mentre la Terra viaggia intorno al Sole. Durante il mese cambia la frazione della sua metà illuminata che possiamo vedere.',points:[
+          ['Due durate diverse','La Luna completa un giro rispetto alle stelle in circa 27,3 giorni. Da una Luna nuova alla successiva passano in media 29,5 giorni: nel frattempo anche la Terra si è spostata intorno al Sole.'],
+          ['Perché vediamo le fasi?','Alla Luna nuova il lato illuminato è rivolto soprattutto lontano da noi. Al primo quarto vediamo metà del disco illuminata; alla Luna piena quasi tutto il disco visibile. Poi la parte luminosa diminuisce.'],
+          ['È l’ombra della Terra?','Di norma no: le fasi derivano dalla geometria fra Sole, Terra e Luna. L’ombra terrestre raggiunge la Luna durante un’eclissi lunare, un evento molto meno frequente. La sua orbita inclinata evita un’eclissi a ogni Luna piena.'],
+          ['La Luna ruota?','Sì: impiega circa lo stesso tempo a girare su se stessa e attorno alla Terra. Perciò ci mostra quasi sempre la stessa faccia. Le piccole oscillazioni apparenti, dette librazione, permettono di osservare nel tempo un po’ più della metà della superficie.']
+        ]}
+      };
+      const questions=[
+        {topic:'rotation',q:'Che cosa provoca il giorno e la notte?',a:['La rotazione della Terra','La distanza dal Sole','Le nuvole'],correct:0,why:'Ogni luogo passa dalla luce all’ombra durante la rotazione.'},
+        {topic:'orbit',q:'Perché ci sono le stagioni?',a:['La Terra è più vicina al Sole in estate','L’asse terrestre è inclinato','La Terra smette di ruotare'],correct:1,why:'L’inclinazione cambia la durata del giorno e la luce ricevuta.'},
+        {topic:'orbit',q:'Se al nord è estate, che stagione è al sud?',a:['Estate','Inverno','Primavera'],correct:1,why:'Le stagioni nei due emisferi sono opposte.'},
+        {topic:'moon',q:'Perché la Luna sembra cambiare forma?',a:['Entra ogni settimana nell’ombra della Terra','Vediamo parti diverse della metà illuminata','Si allontana ogni notte'],correct:1,why:'La fase dipende dalle posizioni relative di Sole, Terra e Luna.'},
+        {topic:'moon',q:'Quanto dura circa un ciclo completo delle fasi lunari?',a:['24 ore','27,3 giorni','29,5 giorni'],correct:2,why:'Il ciclo tra due Lune nuove dura in media 29,5 giorni.'},
+        {topic:'rotation',q:'In quale direzione ruota la Terra?',a:['Da est verso ovest','Da ovest verso est','Cambia direzione ogni giorno'],correct:1,why:'Ruota da ovest verso est: il movimento apparente del Sole è opposto.'},
+        {topic:'rotation',q:'Che cosa è l’asse terrestre?',a:['Una linea immaginaria che passa per i poli','Un anello intorno all’equatore','Il percorso intorno al Sole'],correct:0,why:'L’asse di rotazione attraversa idealmente i due poli.'},
+        {topic:'rotation',q:'Quanto dura circa il giorno solare medio?',a:['12 ore','24 ore','29,5 giorni'],correct:1,why:'Fra due mezzogiorni solari medi trascorrono 24 ore.'},
+        {topic:'rotation',q:'Quanto dura un giro della Terra rispetto alle stelle?',a:['Circa 23 ore e 56 minuti','Esattamente 24 ore','Circa 365 giorni'],correct:0,why:'Il giorno siderale dura circa 23 ore e 56 minuti.'},
+        {topic:'rotation',q:'Vista dall’alto del Polo Nord, come gira la Terra?',a:['In senso orario','In senso antiorario','Non gira'],correct:1,why:'La rotazione terrestre appare antioraria vista dal Polo Nord.'},
+        {topic:'rotation',q:'L’alba avviene sempre alla stessa ora?',a:['Sì, alle 6:00','Sì, alle 7:00','No, cambia con luogo e stagione'],correct:2,why:'L’inclinazione terrestre e la posizione geografica modificano la durata del giorno.'},
+        {topic:'orbit',q:'Quanto dura circa il ciclo delle stagioni?',a:['Un giorno','Un anno, circa 365,24 giorni','Un mese'],correct:1,why:'L’anno tropicale dura in media circa 365,24 giorni.'},
+        {topic:'orbit',q:'Di quanto è inclinato l’asse terrestre?',a:['Circa 5°','Circa 23,4°','Circa 90°'],correct:1,why:'L’angolo rispetto alla perpendicolare al piano dell’orbita è circa 23,4°.'},
+        {topic:'orbit',q:'Che cosa accade al nord intorno al solstizio di giugno?',a:['Si ha il giorno più lungo','Si ha il giorno più corto','Giorno e notte durano sempre 12 ore'],correct:0,why:'Intorno al solstizio di giugno, nell’emisfero nord la durata del giorno raggiunge il massimo.'},
+        {topic:'orbit',q:'Quando si aggiunge il 29 febbraio?',a:['Ogni anno','Negli anni bisestili','A ogni equinozio'],correct:1,why:'Il giorno aggiuntivo aiuta a mantenere il calendario allineato con le stagioni.'},
+        {topic:'orbit',q:'Che cosa succede vicino a un equinozio?',a:['Il Sole non illumina la Terra','Giorno e notte hanno durate simili','La Terra smette di orbitare'],correct:1,why:'Vicino agli equinozi i due emisferi ricevono luce in modo più simile.'},
+        {topic:'orbit',q:'L’estate al nord dipende dall’essere più vicini al Sole?',a:['Sì, è la causa principale','No, dipende soprattutto dall’inclinazione dell’asse','Sì, perché l’orbita è molto allungata'],correct:1,why:'La distanza Terra–Sole non è la causa dell’alternarsi delle stagioni.'},
+        {topic:'moon',q:'Quanto dura circa l’orbita lunare rispetto alle stelle?',a:['24 ore','27,3 giorni','365 giorni'],correct:1,why:'Un giro siderale della Luna dura circa 27,3 giorni.'},
+        {topic:'moon',q:'Alla Luna piena, che parte del disco vediamo illuminata?',a:['Quasi tutta','Circa un quarto','Nessuna'],correct:0,why:'Alla Luna piena il disco visibile è quasi completamente illuminato.'},
+        {topic:'moon',q:'L’ombra terrestre è responsabile delle fasi ordinarie?',a:['Sì, ogni settimana','No: interviene durante le eclissi lunari','Sì, a ogni Luna nuova'],correct:1,why:'Le fasi ordinarie dipendono dalla geometria Sole–Terra–Luna.'},
+        {topic:'moon',q:'La Luna ruota su se stessa?',a:['No, è immobile','Sì, quasi una volta per ogni orbita','Solo durante le eclissi'],correct:1,why:'La rotazione sincrona ci fa vedere quasi sempre la stessa faccia.'},
+        {topic:'moon',q:'Perché non c’è un’eclissi a ogni Luna piena?',a:['L’orbita lunare è inclinata','La Luna non ha ombra','La Terra non ruota'],correct:0,why:'La Luna passa di solito sopra o sotto l’ombra della Terra.'}
+      ];
+      let mode='rotation', playing=false, speed=1, lastTime=0, quizIndex=0, quizScore=0, quizTopic='all', rotationMinute=720, visualSpin=0;
+      let selectedDate=new Date(Date.UTC(2026,5,21,12));
+      const yearDays=y=>Math.round((Date.UTC(y+1,0,1)-Date.UTC(y,0,1))/dayMs);
+      const dayIndex=d=>Math.floor((Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate())-Date.UTC(d.getUTCFullYear(),0,1))/dayMs);
+      const maxDay=(y,m)=>new Date(Date.UTC(y,m+1,0)).getUTCDate();
+      const formatted=d=>`${d.getUTCDate()} ${monthNames[d.getUTCMonth()]}`;
+      const jdDate=jd=>new Date((jd-2440587.5)*dayMs);
+      function seasonMoments(year){
+        const modern=year>=2000,y=modern?(year-2000)/1000:year/1000;
+        const c=modern?[
+          [2451623.80984,365242.37404,.05169,-.00411,-.00057],
+          [2451716.56767,365241.62603,.00325,.00888,-.00030],
+          [2451810.21715,365242.01767,-.11575,.00337,.00078],
+          [2451900.05952,365242.74049,-.06223,-.00823,.00032]
+        ]:[
+          [1721139.29189,365242.13740,.06134,.00111,-.00071],
+          [1721233.25401,365241.72562,-.05323,.00907,.00025],
+          [1721325.70455,365242.49558,-.11677,-.00297,.00074],
+          [1721414.39987,365242.88257,-.00769,-.00933,-.00006]
+        ];
+        return c.map(a=>jdDate(a[0]+a[1]*y+a[2]*y*y+a[3]*y*y*y+a[4]*y*y*y*y));
+      }
+      function season(d){const [march,june,september,december]=seasonMoments(d.getUTCFullYear()),t=d.getTime();return t<Number(march)||t>=Number(december)?'inverno':t<Number(june)?'primavera':t<Number(september)?'estate':'autunno'}
+      const surfaceOffset=(turns,period)=>((((turns+.5)%1)+1)%1-.5)*period;
+      function orbitTrack(cx,cy,rx,ry,bodyX,bodyY,gap){
+        const segments=[];let drawing=false;
+        for(let i=0;i<=180;i++){
+          const angle=2*Math.PI*i/180,x=cx+rx*Math.cos(angle),y=cy+ry*Math.sin(angle);
+          if(Math.hypot(x-bodyX,y-bodyY)<gap){drawing=false;continue}
+          segments.push(`${drawing?'L':'M'}${x.toFixed(1)} ${y.toFixed(1)}`);drawing=true;
+        }
+        return segments.join(' ');
+      }
+      function lunarPhase(d){const cycles=(d.getTime()-epoch)/(synodicDays*dayMs);return ((cycles%1)+1)%1}
+      function phasePath(cx,cy,r,phase){
+        const waxing=phase<.5,cos=Math.cos(2*Math.PI*phase),a=[],b=[];
+        for(let i=0;i<=64;i++){const y=-r+2*r*i/64,h=Math.sqrt(Math.max(0,r*r-y*y));const terminator=(waxing?cos:-cos)*h;a.push(`${(cx+terminator).toFixed(2)} ${(cy+y).toFixed(2)}`);b.unshift(`${(cx+(waxing?h:-h)).toFixed(2)} ${(cy+y).toFixed(2)}`)}
+        return 'M'+a.join(' L')+' L'+b.join(' L')+' Z';
+      }
+      function updateDateOptions(){
+        const y=selectedDate.getUTCFullYear(),m=selectedDate.getUTCMonth(),d=selectedDate.getUTCDate();
+        $('date-year').value=y;$('date-month').value=m;
+        const count=maxDay(y,m),box=$('date-day');
+        if(box.options.length!==count){box.replaceChildren(...Array.from({length:count},(_,i)=>{const option=document.createElement('option');option.value=i+1;option.textContent=i+1;return option}))}
+        box.value=d;$('timeline').max=yearDays(y)-1;$('timeline').value=dayIndex(selectedDate);
+      }
+      function setDate(d){
+        if(d.getUTCFullYear()<1900||d.getUTCFullYear()>2100)return;
+        selectedDate=d;updateDateOptions();$('date-hint').textContent='Posizione orbitale, inizio delle stagioni e fase lunare sono stime didattiche per le ore 12:00 UTC.';render();
+      }
+      function renderRotation(){
+        const minutes=Math.round(rotationMinute),hour=Math.floor(minutes/60)%24,minute=minutes%60;
+        $('readout').textContent=`${String(hour).padStart(2,'0')}:${String(minute).padStart(2,'0')}`;
+        $('readout-unit').textContent='ora locale indicativa';
+        const text=minutes<300||minutes>=1260?'Notte: il punto rosa è sul lato in ombra.':minutes<480?'Alba: il punto rosa entra nella luce.':minutes<660?'Mattina: il punto rosa è sul lato illuminato.':minutes<840?'Mezzogiorno: il punto rosa è rivolto verso il Sole.':minutes<1020?'Pomeriggio: il punto rosa è ancora nella luce.':'Sera: il punto rosa si sposta verso il lato in ombra.';
+        if($('control-description').textContent!==text)$('control-description').textContent=text;
+        const theta=(minutes-720)*Math.PI/720;
+        $('rotation-marker').setAttribute('transform',`translate(${(575-87*Math.cos(theta)).toFixed(1)} ${(220+48*Math.sin(theta)).toFixed(1)})`);
+        $('rotation-lands').setAttribute('transform',`translate(${surfaceOffset((minutes-720)/1440,218).toFixed(2)} 0)`);
+        document.querySelectorAll('#period-picks button').forEach(b=>b.setAttribute('aria-pressed',String(Math.abs(Number(b.dataset.minute)-minutes)<20)));
+        $('insight-text').textContent='Gli orari di alba e tramonto sono indicativi: cambiano con il luogo e la stagione.';
+      }
+      function renderOrbit(){
+        const y=selectedDate.getUTCFullYear(),n=yearDays(y),index=dayIndex(selectedDate);
+        const moments=seasonMoments(y),solstice=Math.floor((Number(moments[3])-Date.UTC(y,0,1))/dayMs);
+        const theta=-2*Math.PI*(index-solstice)/n;
+        const x=450+307*Math.cos(theta),yy=225+149*Math.sin(theta);
+        $('orbit-earth-position').setAttribute('transform',`translate(${x.toFixed(2)} ${yy.toFixed(2)})`);
+        $('orbit-path').setAttribute('d',orbitTrack(450,225,307,149,x,yy,87));
+        const dx=450-x,dy=225-yy,len=Math.hypot(dx,dy);
+        $('orbitLight').setAttribute('cx',`${(50+37*dx/len).toFixed(1)}%`);
+        $('orbitLight').setAttribute('cy',`${(50+37*dy/len).toFixed(1)}%`);
+        $('orbit-earth-lands').setAttribute('transform',`translate(${surfaceOffset(visualSpin,78).toFixed(2)} 0)`);
+        const s=season(selectedDate),text=`Nell’emisfero nord è ${s}. Nell’emisfero sud le stagioni sono opposte.`;
+        $('readout').textContent=formatted(selectedDate);$('readout-unit').textContent=String(y);
+        if($('control-description').textContent!==text)$('control-description').textContent=text;
+        const insight=s==='estate'?'Il polo nord è inclinato verso il Sole: al nord i giorni sono più lunghi.':s==='inverno'?'Il polo nord è inclinato lontano dal Sole: al nord i giorni sono più corti.':'Vicino all’equinozio il Sole illumina i due emisferi in modo più simile.';
+        if($('insight-text').textContent!==insight)$('insight-text').textContent=insight;
+        document.querySelectorAll('#season-picks button').forEach((b,i)=>b.setAttribute('aria-pressed',String(Math.abs(selectedDate.getTime()-moments[i].getTime())<3*dayMs)));
+      }
+      function renderMoon(){
+        const phase=lunarPhase(selectedDate),name=phaseNames[Math.floor(phase*8+.5)%8],lit=Math.round((1-Math.cos(2*Math.PI*phase))*50);
+        const theta=Math.PI-2*Math.PI*phase,x=452+143*Math.cos(theta),y=220+143*Math.sin(theta);
+        $('moon-position').setAttribute('transform',`translate(${x.toFixed(2)} ${y.toFixed(2)})`);
+        $('moon-orbit-path').setAttribute('d',orbitTrack(452,220,143,143,x,y,34));
+        $('moon-phase-lit').setAttribute('d',phasePath(761,234,66,phase));
+        $('moon-orbit-lit').setAttribute('d',phasePath(0,0,22,phase));
+        $('moon-earth-lands').setAttribute('transform',`translate(${surfaceOffset(visualSpin,132).toFixed(2)} 0)`);
+        $('moon-phase-label').textContent=name;
+        $('readout').textContent=formatted(selectedDate);$('readout-unit').textContent=String(selectedDate.getUTCFullYear());
+        const text=`${name} · circa il ${lit}% della faccia visibile è illuminato.`;
+        if($('control-description').textContent!==text)$('control-description').textContent=text;
+        $('insight-text').textContent='Fase stimata per le 12:00 UTC; disco orientato come appare dall’emisfero nord. La posizione è relativa alla direzione del Sole.';
+      }
+      function render(){if(mode==='rotation')renderRotation();else if(mode==='orbit')renderOrbit();else renderMoon()}
+      function renderLesson(){
+        const lesson=lessons[mode];$('detail-title').textContent=lesson.title;$('detail-lead').textContent=lesson.lead;
+        $('detail-grid').replaceChildren(...lesson.points.map(([title,body])=>{const section=document.createElement('section'),heading=document.createElement('h3'),p=document.createElement('p');section.className='detail-point';heading.textContent=title;p.textContent=body;section.append(heading,p);return section}));
+      }
+      function updatePlay(){$('play').textContent=playing?'❚❚ Pausa':'▶ Avvia';$('play').setAttribute('aria-label',playing?'Metti in pausa la simulazione':'Avvia la simulazione')}
+      function switchMode(next){
+        if(next===mode)return;
+        mode=next;playing=false;updatePlay();
+        modes.forEach(m=>{$('tab-'+m).setAttribute('aria-selected',String(m===mode));$(m+'-scene').classList.toggle('active',m===mode)});
+        const c=content[mode];
+        $('diagram-title').textContent=mode==='rotation'?'Rotazione della Terra':mode==='orbit'?'Rivoluzione della Terra':'Fasi della Luna';
+        $('diagram-description').textContent=mode==='rotation'?'La luce del Sole crea il giorno e la notte mentre la Terra ruota.':mode==='orbit'?'La Terra percorre un’orbita e il suo asse inclinato conserva quasi la stessa direzione.':'La Luna si muove intorno alla Terra; la porzione illuminata visibile cambia.';
+        $('stage-title').textContent=c.stage;$('stage-subtitle').textContent=c.subtitle;$('control-kicker').textContent=c.kicker;$('control-title').textContent=c.control;$('range-title').textContent=c.range;
+        ['range-first','range-middle','range-last'].forEach((id,i)=>$(id).textContent=c.labels[i]);
+        $('fact-symbol').textContent=c.symbol;$('fact-title').textContent=c.fact;$('fact-text').textContent=c.description;
+        c.stats.forEach(([number,title,desc],i)=>{const n=i+1;$('stat'+n+'-number').textContent=number;$('stat'+n+'-title').textContent=title;$('stat'+n+'-desc').textContent=desc});
+        $('steps-title').textContent=c.stepsTitle;
+        $('steps').replaceChildren(...c.steps.map(([title,body],i)=>{const row=document.createElement('div'),badge=document.createElement('b'),p=document.createElement('p'),strong=document.createElement('strong');row.className='step';badge.textContent=i+1;strong.textContent=title+'. ';p.append(strong,body);row.append(badge,p);return row}));
+        $('period-picks').classList.toggle('show',mode==='rotation');$('season-picks').classList.toggle('show',mode==='orbit');$('date-box').classList.toggle('show',mode!=='rotation');
+        $('timeline').max=mode==='rotation'?1440:yearDays(selectedDate.getUTCFullYear())-1;
+        $('timeline').step=mode==='rotation'?10:1;$('timeline').value=mode==='rotation'?Math.round(rotationMinute):dayIndex(selectedDate);
+        $('timeline').setAttribute('aria-label',mode==='rotation'?'Ora nella simulazione':'Giorno dell’anno nella simulazione');
+        renderLesson();render();
+      }
+      function animate(time){
+        if(lastTime&&playing&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+          const elapsed=Math.min(time-lastTime,100);
+          if(mode!=='rotation')visualSpin=(visualSpin+elapsed*speed/6000)%1;
+          if(mode==='rotation'){rotationMinute=(rotationMinute+elapsed*1440*speed/18000)%1440;$('timeline').value=Math.round(rotationMinute)}
+          else if(mode==='orbit'){const y=selectedDate.getUTCFullYear(),n=yearDays(y),start=Date.UTC(y,0,1,12);const next=(selectedDate.getTime()-start+elapsed*n*speed*dayMs/26000)%(n*dayMs);selectedDate=new Date(start+next);updateDateOptions()}
+          else{const next=selectedDate.getTime()+elapsed*synodicDays*speed*dayMs/22000;if(new Date(next).getUTCFullYear()<=2100){selectedDate=new Date(next);updateDateOptions()}else{playing=false;updatePlay()}}
+          render();
+        }
+        lastTime=time;requestAnimationFrame(animate);
+      }
+      const quizPool=()=>quizTopic==='all'?questions:questions.filter(q=>q.topic===quizTopic);
+      const scoreText=()=>`${quizScore} ${quizScore===1?'corretta':'corrette'}`;
+      function renderQuiz(){
+        const pool=quizPool();$('quiz-score').textContent=scoreText();$('quiz-feedback').textContent='';$('next-question').classList.remove('show');
+        if(quizIndex>=pool.length){$('quiz-progress').textContent='Quiz completato';$('quiz-question').textContent=`Hai risposto correttamente a ${quizScore} domande su ${pool.length}.`;$('choices').replaceChildren();$('next-question').textContent='Ricomincia ↻';$('next-question').classList.add('show');return}
+        const q=pool[quizIndex];$('quiz-progress').textContent=`Domanda ${quizIndex+1} di ${pool.length}`;$('quiz-question').textContent=q.q;
+        $('choices').replaceChildren(...q.a.map((answer,i)=>{const b=document.createElement('button');b.type='button';b.className='choice';b.textContent=answer;
+          b.addEventListener('click',()=>{document.querySelectorAll('.choice').forEach((choice,j)=>{choice.disabled=true;if(j===q.correct)choice.classList.add('correct');else if(j===i)choice.classList.add('wrong')});if(i===q.correct)quizScore++;$('quiz-score').textContent=scoreText();$('quiz-feedback').textContent=(i===q.correct?'Esatto! ':'La risposta corretta è evidenziata. ')+q.why;$('next-question').textContent=quizIndex===pool.length-1?'Vedi risultato →':'Altra domanda →';$('next-question').classList.add('show')});return b}));
+      }
+      $('date-month').replaceChildren(...monthNames.map((name,i)=>{const o=document.createElement('option');o.value=i;o.textContent=name[0].toUpperCase()+name.slice(1);return o}));
+      updateDateOptions();
+      modes.forEach(m=>$('tab-'+m).addEventListener('click',()=>switchMode(m)));
+      document.querySelector('.tabs').addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();const i=modes.indexOf(mode),next=modes[(i+(e.key==='ArrowRight'?1:2))%3];switchMode(next);$('tab-'+next).focus()}});
+      $('timeline').addEventListener('input',e=>{if(mode==='rotation'){rotationMinute=Number(e.target.value);render()}else{const y=selectedDate.getUTCFullYear();setDate(new Date(Date.UTC(y,0,1,12)+Number(e.target.value)*dayMs))}});
+      $('play').addEventListener('click',()=>{playing=!playing;updatePlay()});
+      document.querySelectorAll('.speed').forEach(b=>b.addEventListener('click',()=>{speed=Number(b.dataset.speed);document.querySelectorAll('.speed').forEach(x=>x.setAttribute('aria-pressed',String(x===b)))}));
+      document.querySelectorAll('#period-picks button').forEach(b=>b.addEventListener('click',()=>{rotationMinute=Number(b.dataset.minute);$('timeline').value=rotationMinute;render()}));
+      document.querySelectorAll('#season-picks button').forEach((b,i)=>b.addEventListener('click',()=>setDate(seasonMoments(selectedDate.getUTCFullYear())[i])));
+      function commitDate(){
+        const year=Number($('date-year').value),month=Number($('date-month').value),day=Number($('date-day').value);
+        if(!Number.isInteger(year)||year<1900||year>2100){$('date-hint').textContent='Inserisci un anno intero tra 1900 e 2100.';return}
+        setDate(new Date(Date.UTC(year,month,Math.min(day,maxDay(year,month)),12)));
+      }
+      $('date-day').addEventListener('change',commitDate);$('date-month').addEventListener('change',commitDate);$('date-year').addEventListener('change',commitDate);
+      document.querySelectorAll('.quiz-topic').forEach(b=>b.addEventListener('click',()=>{quizTopic=b.dataset.topic;quizIndex=0;quizScore=0;document.querySelectorAll('.quiz-topic').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));renderQuiz()}));
+      $('next-question').addEventListener('click',()=>{if(quizIndex>=quizPool().length){quizIndex=0;quizScore=0}else quizIndex++;renderQuiz()});
+      switchMode('moon');switchMode('rotation');renderQuiz();requestAnimationFrame(animate);
+    })();
+    </script>
+</body>
+</html>
